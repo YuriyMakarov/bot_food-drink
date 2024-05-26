@@ -3,17 +3,18 @@ import asyncio
 from aiogram import Dispatcher, Bot
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from handlers import command_start_and_cancel, ordering_food, ordering_drink
+from handlers import command_start, ordering_food, ordering_drink, command_cancel
 
 
 async def main():
-    bot = Bot(token="7101861490:AAED8DmT5NWqxsodKedIHvEEe4z3QFKqHD0")
+    bot = Bot(token="7092282501:AAFKLxRszbTAgyXhfyvZy6Ls2EOZkZ2Pza8")
     dp = Dispatcher(storage=MemoryStorage())
     logging.basicConfig(level=logging.INFO)
 
-    dp.include_router(command_start_and_cancel.router)
+    dp.include_router(command_start.router)
     dp.include_router(ordering_food.router)
     dp.include_router(ordering_drink.router)
+    dp.include_router(command_cancel.router)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

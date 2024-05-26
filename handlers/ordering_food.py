@@ -13,6 +13,7 @@ class OrderFood(StatesGroup):
     food_size = State()
 
 
+
 food_names = ["Суши", "Спагетти", "Хачапури"]
 food_sizes = ["Маленькую", "Среднюю", "Большую"]
 
